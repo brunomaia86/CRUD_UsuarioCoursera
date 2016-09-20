@@ -94,10 +94,10 @@ public class UsuarioBD implements UsuarioDAO {
 
 		List<Usuario> rank = new ArrayList<>();
 
-		try (Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/usuarios", "postgres",
+		try (Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/coursera", "postgres",
 				"postgres")) {
 
-			String sql = "SELECT * FROM usuario";
+			String sql = "SELECT * FROM usuario ORDER BY pontos DESC";
 			PreparedStatement stm = c.prepareStatement(sql);
 			ResultSet rs = stm.executeQuery();
 			while (rs.next()) {
